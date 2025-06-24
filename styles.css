@@ -1,0 +1,137 @@
+
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+      }
+      
+      .gradient-bg {
+          background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      }
+      
+      .feature-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .testimonial-card {
+          transition: all 0.3s ease;
+      }
+      
+      .testimonial-card:hover {
+          transform: scale(1.02);
+      }
+      
+      .sticky-header {
+          transition: all 0.3s ease;
+      }
+      
+      .sticky-header.scrolled {
+          background-color: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      
+      .dark .sticky-header.scrolled {
+          background-color: rgba(30, 41, 59, 0.95);
+      }
+      
+      /* Dark mode styles */
+      .dark {
+          background-color: #0f172a;
+          color: #f8fafc;
+      }
+      
+      .dark .bg-white {
+          background-color: #1e293b !important;
+          color: #f8fafc !important;
+      }
+      
+      .dark .text-dark {
+          color: #f8fafc !important;
+      }
+      
+      .dark .border-gray-200 {
+          border-color: #334155 !important;
+      }
+      
+      /* Animation classes */
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(20px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+      
+      .animate-fadeInUp {
+          animation: fadeInUp 0.6s ease forwards;
+      }
+      
+      .delay-100 {
+          animation-delay: 0.1s;
+      }
+      
+      .delay-200 {
+          animation-delay: 0.2s;
+      }
+      
+      .delay-300 {
+          animation-delay: 0.3s;
+      }
+      
+      /* Chat widget */
+      .chat-widget {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          z-index: 50;
+      }
+      
+      .chat-button {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      
+      .chat-box {
+          position: absolute;
+          bottom: 80px;
+          right: 0;
+          width: 350px;
+          max-height: 500px;
+          border-radius: 12px;
+          overflow: hidden;
+          transform-origin: bottom right;
+          transform: scale(0);
+          opacity: 0;
+          transition: all 0.3s ease;
+      }
+      
+      .chat-box.open {
+          transform: scale(1);
+          opacity: 1;
+      }
+      
+      /* Cookie consent */
+      .cookie-consent {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 40;
+          transform: translateY(100%);
+          transition: transform 0.3s ease;
+      }
+      
+      .cookie-consent.show {
+          transform: translateY(0);
+      }
