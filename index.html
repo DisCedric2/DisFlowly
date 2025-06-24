@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowly - The Ultimate Workflow Automation Tool</title>
+  <meta name="description"
+    content="Flowly automates your business processes with AI-powered workflow automation. Save time and reduce errors with our intuitive SaaS platform.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366f1',
+            secondary: '#8b5cf6',
+            dark: '#1e293b',
+            light: '#f8fafc'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+</head>
+
+<body class="bg-light dark:bg-dark">
+  <!-- Dark mode toggle -->
+  <div class="fixed top-4 right-4 z-50">
+    <button id="theme-toggle" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md">
+      <i id="theme-icon" class="fas fa-moon text-gray-800 dark:text-yellow-300"></i>
+    </button>
+  </div>
+
+  <!-- Sticky Header -->
+  <header class="sticky-header fixed top-0 left-0 right-0 z-40 py-4 bg-transparent">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="#" class="text-2xl font-bold text-white dark:text-white flex items-center">
+            <span class="gradient-bg p-2 rounded-lg mr-2">
+              <i class="fas fa-bolt text-white"></i>
+            </span>
+            Flowly
+          </a>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#features" class="text-white dark:text-white hover:text-gray-200 transition">Features</a>
+          <a href="#how-it-works" class="text-white dark:text-white hover:text-gray-200 transition">How It Works</a>
+          <a href="#pricing" class="text-white dark:text-white hover:text-gray-200 transition">Pricing</a>
+          <a href="#testimonials" class="text-white dark:text-white hover:text-gray-200 transition">Testimonials</a>
+        </div>
+
+        <div class="flex items-center">
+          <a href="#contact"
+            class="bg-white text-primary px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition hidden md:inline-block">
+            Request Demo
+          </a>
+          <button id="mobile-menu-button" class="md:hidden text-white">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex-col items-center justify-center">
+    <button id="close-mobile-menu" class="absolute top-6 right-6 text-white text-2xl">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="flex flex-col items-center space-y-8">
+      <a href="#features" class="text-white text-xl">Features</a>
+      <a href="#how-it-works" class="text-white text-xl">How It Works</a>
+      <a href="#pricing" class="text-white text-xl">Pricing</a>
+      <a href="#testimonials" class="text-white text-xl">Testimonials</a>
+      <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-full font-medium text-xl">
+        Request Demo
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg pt-32 pb-20 text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-12 md:mb-0 animate-fadeInUp">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Automate Your Workflow with AI
+          </h1>
+          <p class="text-xl md:text-2xl opacity-90 mb-8">
+            Flowly helps businesses save time and reduce errors by automating repetitive tasks with our intuitive
+            platform.
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#contact"
+              class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition text-center">
+              Request Demo
+            </a>
+            <a href="#how-it-works"
+              class="border-2 border-white px-8 py-4 rounded-full font-bold hover:bg-white hover:bg-opacity-10 transition text-center">
+              How It Works
+            </a>
+          </div>
+          <div class="mt-8 flex items-center space-x-4">
+            <div class="flex -space-x-2">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg"
+                class="w-10 h-10 rounded-full border-2 border-white" alt="User">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                class="w-10 h-10 rounded-full border-2 border-white" alt="User">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg"
+                class="w-10 h-10 rounded-full border-2 border-white" alt="User">
+            </div>
+            <div>
+              <p class="text-sm opacity-80">Trusted by 5,000+ businesses</p>
+              <div class="flex">
+                <i class="fas fa-star text-yellow-300"></i>
+                <i class="fas fa-star text-yellow-300"></i>
+                <i class="fas fa-star text-yellow-300"></i>
+                <i class="fas fa-star text-yellow-300"></i>
+                <i class="fas fa-star text-yellow-300"></i>
+                <span class="ml-2">4.9/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 animate-fadeInUp delay-100">
+          <div class="relative">
+            <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-white bg-opacity-10"></div>
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-white bg-opacity-10"></div>
+            <div
+              class="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white border-opacity-20">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Dashboard Preview" class="w-full h-auto rounded-xl">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <button class="w-16 h-16 rounded-full bg-white bg-opacity-90 flex items-center justify-center">
+                  <i class="fas fa-play text-primary text-xl"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Cloud -->
+  <section class="py-12 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-8">TRUSTED BY INDUSTRY LEADERS</p>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+        <img src="images/Google.png" class="h-8 dark:invert" alt="Google">
+        <img src="images/microsoft.png" class="h-8 dark:invert" alt="Microsoft">
+        <img src="images/Amazon-Logo.png" class="h-8 dark:invert" alt="Amazon">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 rounded-full mb-4">
+          POWERFUL FEATURES
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
+          Everything You Need to Automate Workflows
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Flowly provides all the tools you need to streamline your business processes and save countless hours.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div
+          class="feature-card bg-white dark:bg-gray-800 p-8 rounded-xl transition duration-300 animate-fadeInUp delay-100">
+          <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-robot text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-3">AI-Powered Automation</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Our AI learns from your workflows to suggest and implement optimizations automatically.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div
+          class="feature-card bg-white dark:bg-gray-800 p-8 rounded-xl transition duration-300 animate-fadeInUp delay-200">
+          <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-project-diagram text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-3">Visual Workflow Builder</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Drag-and-drop interface makes it easy to design complex workflows without coding.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div
+          class="feature-card bg-white dark:bg-gray-800 p-8 rounded-xl transition duration-300 animate-fadeInUp delay-300">
+          <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-plug text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-3">300+ Integrations</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Connect with all your favorite tools like Slack, Salesforce, Google Workspace, and more.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div
+          class="feature-card bg-white dark:bg-gray-800 p-8 rounded-xl transition duration-300 animate-fadeInUp delay-100">
+          <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-shield-alt text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-3">Enterprise Security</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            SOC 2 compliant with end-to-end encryption to keep your data safe and secure.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div
+          class="feature-card bg-white dark:bg-gray-800 p-8 rounded-xl transition duration-300 animate-fadeInUp delay-200">
+          <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-chart-line text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-3">Advanced Analytics</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Track workflow performance and identify bottlenecks with detailed reports.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div
+          class="feature-card bg-white dark:bg-gray-800 p-8 rounded-xl transition duration-300 animate-fadeInUp delay-300">
+          <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-headset text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-3">24/7 Support</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Our team of experts is available around the clock to help you with any issues.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works / Video Section -->
+  <section id="how-it-works" class="py-20 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12 animate-fadeInUp">
+          <span
+            class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 rounded-full mb-4">
+            HOW IT WORKS
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-6">
+            Automate in Just 3 Simple Steps
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            Getting started with Flowly is quick and easy. Our intuitive platform guides you through the process of
+            automating your workflows.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white font-bold">
+                  1
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-dark dark:text-white mb-2">Connect Your Apps</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  Link Flowly with the tools you already use like Gmail, Slack, and Salesforce.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white font-bold">
+                  2
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-dark dark:text-white mb-2">Design Your Workflow</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  Use our visual builder to create automation rules with simple if-this-then-that logic.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex-shrink-0 mr-4">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full gradient-bg text-white font-bold">
+                  3
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-dark dark:text-white mb-2">Let Flowly Handle the Rest</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  Sit back as Flowly executes your workflows automatically, saving you time and effort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <div class="aspect-w-16 aspect-h-9">
+              <video width="560" height="315" controls autoplay muted loop>
+                <source src="images/Mountain and Forest Activities   Taiwan Tourism Video 30 seconds.mp4"
+                  type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-20"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 rounded-full mb-4">
+          TESTIMONIALS
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
+          Trusted by Thousands of Businesses
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Don't just take our word for it. Here's what our customers have to say.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="w-16 h-16 rounded-full mr-4"
+              alt="Sarah Johnson">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white">Sarah Johnson</h4>
+              <p class="text-gray-500 dark:text-gray-400">COO, TechSolutions Inc.</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            "Flowly has transformed how we operate. We've automated 80% of our repetitive tasks, saving over 200 hours
+            per month. The ROI was immediate and the platform is incredibly intuitive."
+          </p>
+          <div class="flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+          <div class="flex items-center mb-6">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-16 h-16 rounded-full mr-4"
+              alt="Michael Chen">
+            <div>
+              <h4 class="font-bold text-dark dark:text-white">Michael Chen</h4>
+              <p class="text-gray-500 dark:text-gray-400">CEO, GrowthMarketing LLC</p>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">
+            "The visual workflow builder is a game-changer. We've connected all our marketing tools and created complex
+            automations without writing a single line of code. Support is fantastic too!"
+          </p>
+          <div class="flex">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 rounded-full mb-4">
+          PRICING
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
+          Simple, Transparent Pricing
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Choose the plan that fits your needs. No hidden fees, cancel anytime.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Starter Plan -->
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-8 border border-gray-200 dark:border-gray-600">
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-2">Starter</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">Perfect for small teams</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-dark dark:text-white">$29</span>
+            <span class="text-gray-600 dark:text-gray-300">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">1000 automation runs/month</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">5 users</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">50 integrations</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">Email support</span>
+            </li>
+          </ul>
+          <a href="#contact"
+            class="block w-full py-3 px-6 text-center rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-white transition">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Pro Plan (Featured) -->
+        <div class="relative bg-white dark:bg-gray-900 rounded-xl p-8 border-2 border-primary shadow-lg">
+          <div
+            class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+            POPULAR
+          </div>
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-2">Pro</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">For growing businesses</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-dark dark:text-white">$99</span>
+            <span class="text-gray-600 dark:text-gray-300">/month</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">10,000 automation runs/month</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">20 users</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">All 300+ integrations</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">Priority support</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">Advanced analytics</span>
+            </li>
+          </ul>
+          <a href="#contact"
+            class="block w-full py-3 px-6 text-center rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-8 border border-gray-200 dark:border-gray-600">
+          <h3 class="text-xl font-bold text-dark dark:text-white mb-2">Enterprise</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">For large organizations</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-dark dark:text-white">Custom</span>
+          </div>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">Unlimited automation runs</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">Unlimited users</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">All integrations + custom</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">24/7 dedicated support</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-600 dark:text-gray-300">On-premise deployment</span>
+            </li>
+          </ul>
+          <a href="#contact"
+            class="block w-full py-3 px-6 text-center rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-white transition">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600 dark:text-gray-300">
+          Need help choosing? <a href="#" class="text-primary font-medium">Compare plans</a> or <a href="#"
+            class="text-primary font-medium">talk to sales</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="contact" class="py-20 gradient-bg text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Workflows?</h2>
+        <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+          Schedule a personalized demo to see how Flowly can save your team time and reduce errors.
+        </p>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+          <h3 class="text-2xl font-bold text-dark dark:text-white mb-6">Request a Demo</h3>
+
+          <form id="demo-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 text-left">Full
+                  Name</label>
+                <input type="text" id="name" name="name" required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+              </div>
+              <div>
+                <label for="email"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 text-left">Email</label>
+                <input type="email" id="email" name="email" required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="phone"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 text-left">Phone</label>
+                <input type="tel" id="phone" name="phone"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+              </div>
+              <div>
+                <label for="company"
+                  class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 text-left">Company</label>
+                <input type="text" id="company" name="company"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white">
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 text-left">How
+                can we help you?</label>
+              <textarea id="message" name="message" rows="3"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit"
+                class="w-full bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition">
+                Request Demo
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+          <span
+            class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-indigo-100 dark:bg-indigo-900 dark:bg-opacity-40 rounded-full mb-4">
+            FAQ
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300">
+            Can't find what you're looking for? <a href="#" class="text-primary font-medium">Contact our support
+              team</a>.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- FAQ Item 1 -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+            <button class="faq-toggle w-full flex justify-between items-center text-left">
+              <h3 class="text-lg font-semibold text-dark dark:text-white">
+                What types of workflows can I automate with Flowly?
+              </h3>
+              <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content mt-4 hidden">
+              <p class="text-gray-600 dark:text-gray-300">
+                Flowly can automate virtually any repetitive business process. Common use cases include lead management,
+                customer onboarding, invoice processing, employee onboarding, marketing campaign automation, data
+                synchronization between apps, and much more. Our platform is flexible enough to handle simple
+                if-this-then-that rules as well as complex multi-step workflows.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+            <button class="faq-toggle w-full flex justify-between items-center text-left">
+              <h3 class="text-lg font-semibold text-dark dark:text-white">
+                Do I need coding skills to use Flowly?
+              </h3>
+              <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content mt-4 hidden">
+              <p class="text-gray-600 dark:text-gray-300">
+                No coding skills are required! Flowly's visual workflow builder allows you to create automations through
+                an intuitive drag-and-drop interface. For advanced users, we do offer the ability to add custom
+                JavaScript code at any step in your workflow, but this is completely optional.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+            <button class="faq-toggle w-full flex justify-between items-center text-left">
+              <h3 class="text-lg font-semibold text-dark dark:text-white">
+                How long does it take to set up Flowly?
+              </h3>
+              <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content mt-4 hidden">
+              <p class="text-gray-600 dark:text-gray-300">
+                Most customers can get started with basic automations in under 30 minutes. Connecting your apps is quick
+                and easy with our guided setup process. More complex workflows might take a few hours to design and
+                test. Our customer success team is available to help with onboarding if needed.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+            <button class="faq-toggle w-full flex justify-between items-center text-left">
+              <h3 class="text-lg font-semibold text-dark dark:text-white">
+                What happens if I exceed my monthly automation runs?
+              </h3>
+              <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content mt-4 hidden">
+              <p class="text-gray-600 dark:text-gray-300">
+                If you exceed your monthly automation runs, we'll notify you and give you the option to upgrade your
+                plan or purchase additional runs at a prorated rate. We never shut off your automations without warning.
+                You can also monitor your usage in real-time through the dashboard.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+            <button class="faq-toggle w-full flex justify-between items-center text-left">
+              <h3 class="text-lg font-semibold text-dark dark:text-white">
+                Is my data secure with Flowly?
+              </h3>
+              <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content mt-4 hidden">
+              <p class="text-gray-600 dark:text-gray-300">
+                Absolutely. Security is our top priority. Flowly is SOC 2 Type II certified, uses end-to-end encryption
+                for all data transfers, and offers enterprise-grade security features like IP whitelisting and single
+                sign-on (SSO). We never store sensitive data like passwords in plain text, and you maintain full
+                ownership of your data at all times.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div>
+          <a href="#" class="text-2xl font-bold text-dark dark:text-white flex items-center mb-4">
+            <span class="gradient-bg p-2 rounded-lg mr-2">
+              <i class="fas fa-bolt text-white"></i>
+            </span>
+            Flowly
+          </a>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            The ultimate workflow automation platform for modern businesses.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-500 hover:text-primary transition">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition">
+              <i class="fab fa-facebook text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-dark dark:text-white mb-4">Product</h3>
+          <ul class="space-y-2">
+            <li><a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Features</a>
+            </li>
+            <li><a href="#pricing" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Pricing</a>
+            </li>
+            <li><a href="#how-it-works" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">How It
+                Works</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Integrations</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Updates</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-dark dark:text-white mb-4">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Blog</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Help Center</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Tutorials</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Community</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Webinars</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-dark dark:text-white mb-4">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">About Us</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Careers</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Contact</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Press</a></li>
+            <li><a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
+          © 2023 Flowly. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary transition">Privacy Policy</a>
+          <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary transition">Terms of Service</a>
+          <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary transition">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget">
+    <div class="chat-box bg-white dark:bg-gray-800 shadow-xl" id="chat-box">
+      <div class="bg-primary text-white p-4">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold">Flowly Support</h3>
+          <button id="close-chat" class="text-white">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <p class="text-sm opacity-80">We're here to help!</p>
+      </div>
+      <div class="p-4 h-64 overflow-y-auto">
+        <div class="flex mb-4">
+          <div class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center mr-2">
+            <i class="fas fa-robot text-gray-600 dark:text-gray-300"></i>
+          </div>
+          <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 max-w-xs">
+            <p class="text-sm text-gray-800 dark:text-gray-200">Hi there! How can I help you today?</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 dark:border-gray-700 p-4">
+        <div class="flex">
+          <input type="text" placeholder="Type your message..."
+            class="flex-grow px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white">
+          <button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-indigo-700 transition">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <button id="chat-button" class="chat-button gradient-bg text-white">
+      <i class="fas fa-comment-dots text-2xl"></i>
+    </button>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/1234567890" target="_blank"
+    class="fixed bottom-24 right-6 w-14 h-14 rounded-full bg-green-500 flex items-center justify-center text-white text-2xl shadow-lg hover:bg-green-600 transition z-40">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Cookie Consent -->
+  <div
+    class="cookie-consent bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-4 px-6 shadow-lg">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <p class="text-gray-600 dark:text-gray-300 mb-4 md:mb-0 text-sm md:text-base">
+          We use cookies to ensure you get the best experience on our website.
+          <a href="#" class="text-primary font-medium">Learn more</a>
+        </p>
+        <div class="flex space-x-3">
+          <button id="cookie-accept"
+            class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-indigo-700 transition text-sm">
+            Accept All
+          </button>
+          <button id="cookie-decline"
+            class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm">
+            Decline
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top"
+    class="fixed bottom-6 right-32 w-12 h-12 rounded-full bg-gray-800 dark:bg-gray-700 text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-40">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const html = document.documentElement;
+
+    // Check for saved user preference or use system preference
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    } else {
+      html.classList.remove('dark');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+    });
+
+    closeMobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+
+    // Chat widget toggle
+    const chatButton = document.getElementById('chat-button');
+    const chatBox = document.getElementById('chat-box');
+    const closeChat = document.getElementById('close-chat');
+
+    chatButton.addEventListener('click', () => {
+      chatBox.classList.toggle('open');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatBox.classList.remove('open');
+    });
+
+    // Cookie consent
+    const cookieConsent = document.querySelector('.cookie-consent');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieDecline = document.getElementById('cookie-decline');
+
+    if (!localStorage.getItem('cookieConsent')) {
+      setTimeout(() => {
+        cookieConsent.classList.add('show');
+      }, 1000);
+    }
+
+    cookieAccept.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieConsent.classList.remove('show');
+    });
+
+    cookieDecline.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      cookieConsent.classList.remove('show');
+    });
+
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.remove('opacity-100', 'visible');
+        backToTopButton.classList.add('opacity-0', 'invisible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Sticky header on scroll
+    const header = document.querySelector('.sticky-header');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // FAQ accordion
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+
+    faqToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const content = toggle.nextElementSibling;
+        const icon = toggle.querySelector('i');
+
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          icon.classList.add('transform', 'rotate-180');
+        } else {
+          content.classList.add('hidden');
+          icon.classList.remove('transform', 'rotate-180');
+        }
+      });
+    });
+
+    // Form submission
+    const demoForm = document.getElementById('demo-form');
+
+    demoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      // Here you would typically send the data to your server
+      // For this demo, we'll just show an alert
+      alert(`Thank you, ${name}! We've received your demo request and will contact you at ${email} shortly.`);
+
+      // Reset form
+      demoForm.reset();
+    });
+
+    // Scroll animations
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-fadeInUp');
+
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate-fadeInUp');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+</body>
+
+</html>
